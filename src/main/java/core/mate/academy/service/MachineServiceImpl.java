@@ -41,7 +41,8 @@ public class MachineServiceImpl<T extends Machine> implements MachineService<T> 
         } else if (type == Excavator.class) {
             return new ExcavatorProducer();
         } else {
-            return new DefaultProducer();
+            // Повертаємо анонімний MachineProducer, який повертає порожній список
+            return () -> List.of();
         }
     }
 }
